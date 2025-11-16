@@ -57,14 +57,15 @@
           "charging": "Korisnički definirani punjač",
           "heating": "Korisnički definirani grijač"
         },
-        "heatpump": "Korisnički definirana dizalica topline",
-        "sgready": "Korisnički definirana dizalica topline (sg-ready putem dodataka)",
-        "sgready-relay": "Korisnički definirana dizalica topline (sg-ready putem releja)",
+        "heatpump": "Korisnički definirana toplinska pumpa",
+        "sgready": "Korisnički definirana toplinska pumpa (sg-ready-boost putem dodataka)",
+        "sgready-boost": "Korisnički definirana toplinska pumpa (sg-ready-boost, zastarjelo)",
+        "sgready-relay": "Korisnički definirana toplinska pumpa (sg-ready-boost putem releja)",
         "switchsocket": "Korisnički definirana upravljiva utičnica"
       }
     },
     "circuits": {
-      "description": "Osigurava da suma svih točaka punjenja povezanih na mrežu ne prelazi postavljene granice snage i struje. Krugovi mogu biti složeni hijerarhijski.",
+      "description": "Osigurava da zbroj svih točaka opterećenja povezanih na strujni krug ne premašuje konfigurirana ograničenja snage i struje. Strujni krugovi se mogu ugnijezditi kako bi se izgradila hijerarhija.",
       "title": "Upravljanje opterećenjem",
       "usableMeters": "Dostupne reference brojila"
     },
@@ -99,7 +100,7 @@
       "feedinPrice": "Cijena izvoza",
       "gridPrice": "Cijena uvoza",
       "heaterTempLimit": "Ograničenje grijača",
-      "hemsActiveLimit": "Aktivno ograničenje",
+      "hemsActiveLimit": "Ograničenje aktivnosti",
       "hemsType": "Komunikacija",
       "identifier": "RFID-identifikator",
       "no": "ne",
@@ -110,15 +111,15 @@
       "phaseVoltages": "Napon L1, L2, L3",
       "phases1p3p": "Promjena faza",
       "power": "Snaga",
-      "powerRange": "Ukupna snaga",
-      "range": "Doseg",
+      "powerRange": "Snaga",
+      "range": "Raspon",
       "singlePhase": "Jedna faza",
       "soc": "Napunjenost",
       "solarForecast": "Prognoza proizvodnje solarne energije",
       "temp": "Temperatura",
       "topic": "Tema",
       "url": "URL",
-      "vehicleLimitSoc": "Ograničenje vozila",
+      "vehicleLimitSoc": "Ograničenje punjenja",
       "yes": "da"
     },
     "deviceValueChargeStatus": {
@@ -143,9 +144,9 @@
       "title": "EEBus"
     },
     "ext": {
-      "description": "Može se koristiti za upravljanje opterećenjem ili za statistiku.",
-      "titleAdd": "Dodaj vanjsko brojilo",
-      "titleEdit": "Uredi vanjsko brojilo"
+      "description": "Bilježi energetske vrijednosti nekontroliranih potrošača (npr. hladnjak, perilica rublja itd.) u statističke svrhe. Ova se brojila mogu koristiti i za upravljanje opterećenjem (npr. poddistribucija).",
+      "titleAdd": "Dodaj brojilo potrošača",
+      "titleEdit": "Uredi brojilo potrošača"
     },
     "form": {
       "danger": "Opasnost",
@@ -185,7 +186,7 @@
       "titleEdit": "Uredi brojilo mreže"
     },
     "hems": {
-      "description": "Ograničenje snage od strane vanjskih sustava (npr. EnWG 14a kontroleri). Zahtijeva konfiguraciju upravljanja opterećenjem.",
+      "description": "Ograničenje snage od eksternih sustava (npr. EnWG 14a kontroleri). Zahtijeva konfiguraciju za upravljanje opterećenja.",
       "title": "HEMS"
     },
     "icon": {
@@ -223,14 +224,14 @@
         "heating": "Grijač"
       },
       "chargerPower11kw": "11 kW",
-      "chargerPower11kwHelp": "Koristiti će raspon struje od 6 do 16A.",
+      "chargerPower11kwHelp": "Koristit će raspon struje od 6 do 16 A.",
       "chargerPower22kw": "22 kW",
-      "chargerPower22kwHelp": "Koristiti će raspon struje od 6 do 32A.",
+      "chargerPower22kwHelp": "Koristit će raspon struje od 6 do 32 A.",
       "chargerPowerCustom": "drugo",
       "chargerPowerCustomHelp": "Definiraj prilagođeni raspon struje.",
       "chargerTypeLabel": "Tip punjača",
       "chargingTitle": "Način rada",
-      "circuitHelp": "Postavljanje upravljanja energijom kako bi se osiguralo da se ne prijeđu trenutna ograničenja.",
+      "circuitHelp": "Dodjela upravljanja opterećenjem kako bi se osiguralo da se ne prekorače ograničenja snage i struje.",
       "circuitLabel": "Strujni krug",
       "circuitUnassigned": "nedodijeljen",
       "defaultModeHelp": {
@@ -280,7 +281,7 @@
       "solarModeCustom": "prilagođeno",
       "solarModeMaximum": "maksimalno iz solarne energije",
       "thresholdDisableDelayLabel": "Onemogući odgodu",
-      "thresholdDisableHelpInvalid": "Molim upotrijebite pozitivnu vrijednost.",
+      "thresholdDisableHelpInvalid": "Koristite pozitivnu vrijednost.",
       "thresholdDisableHelpPositive": "Zaustavi kada se više od {power} koristi iz mreže tijekom {delay}.",
       "thresholdDisableHelpZero": "Zaustavi kada se minimalna potrebna snaga ne može osigurati tijekom {delay}.",
       "thresholdDisableLabel": "Onemogući energiju iz mreže",
@@ -324,7 +325,7 @@
       "title": "Postavke",
       "unconfigured": "nije postavljeno",
       "vehicles": "Moja vozila",
-      "yaml": "Uređaje definirane u evcc.yaml datoteci nije moguće uređivati."
+      "yaml": "U evcc.yaml datoteci definirani uređaji se ne mogu uređivati."
     },
     "messaging": {
       "description": "Primajte poruke o svojim sesijama punjenja.",
@@ -337,7 +338,7 @@
       "option": {
         "aux": "Dodaj samoregulirajućeg potrošača",
         "battery": "Dodaj brojilo baterije",
-        "ext": "Dodaj vanjsko brojilo",
+        "ext": "Dodaj redovnog potrošača",
         "pv": "Dodaj brojilo solarne elektrane"
       },
       "save": "Spremi",
@@ -367,7 +368,7 @@
       "protocolValueTcp": "TCP"
     },
     "modbusproxy": {
-      "description": "Dozvoli spajanje više korisnika na jedan Modbus uređaj.",
+      "description": "Neki Modbus uređaji podržavaju samo jednu ili vrlo malo veza. evcc može djelovati kao proxy, omogućujući istovremeni pristup za više klijenata (kućna automatizacija, skripta itd.).",
       "title": "Modbus proxy"
     },
     "mqtt": {
@@ -468,6 +469,7 @@
         "backup": {
           "action": "Preuzimanje sigurnosne kopije...",
           "confirmationButton": "Preuzmite sigurnosnu kopiju",
+          "confirmationText": "Preuzmi datoteku baze podataka.",
           "description": "Pohranite svoje podatke u datoteku. Ova datoteka se može koristiti za vraćanje podataka u slučaju kvara sustava.",
           "title": "Sigurnosna kopija"
         },
@@ -499,7 +501,7 @@
       "restart": "Ponovno pokretanje",
       "restartRequiredDescription": "Ponovno pokrenite za primjenu promjena.",
       "restartRequiredMessage": "Konfiguracija je promijenjena.",
-      "restartingDescription": "Molim pričekajte…",
+      "restartingDescription": "Pričekajte …",
       "restartingMessage": "Ponovno pokretanje evcc-a."
     },
     "tariffs": {
@@ -514,7 +516,7 @@
     "validation": {
       "failed": "neuspjelo",
       "label": "Status",
-      "running": "provjera…",
+      "running": "Provjera …",
       "success": "uspješno",
       "unknown": "nepoznato",
       "validate": "provjeri"
@@ -548,10 +550,10 @@
   },
   "footer": {
     "community": {
-      "greenEnergy": "Solar",
-      "greenEnergySub1": "napunjeno uz evcc",
-      "greenEnergySub2": "od listopada 2022",
-      "greenShare": "Udio solara",
+      "greenEnergy": "Solarno",
+      "greenEnergySub1": "napunjeno s evcc-om",
+      "greenEnergySub2": "od listopada 2022.",
+      "greenShare": "Udio solarne energije",
       "greenShareSub1": "energiju osigurava",
       "greenShareSub2": "solar i baterijska pohrana",
       "power": "Snaga punjenja",
@@ -586,7 +588,7 @@
       "becomeSponsor": "Postanite sponzor",
       "becomeSponsorExtended": "Podržite nas izravno i dobit ćete naljepnice.",
       "confetti": "Spremni za konfete?",
-      "confettiPromise": "Dobivate naljepnice i digitalne konfete.",
+      "confettiPromise": "Dobit češ naljepnice i digitalne konfete",
       "sticker": "… ili evcc naljepnice?",
       "supportUs": "Naša misija je da solarno punjenje postane uobičajeno. Podržite evcc uplatom iznosa koji smatrate primjerenim.",
       "thanks": "Hvala, {sponsor}! Tvoj doprinos pomaže u daljnjem razvoju evcc-a.",
@@ -643,9 +645,10 @@
     }
   },
   "header": {
-    "about": "O",
+    "about": "Informacije",
     "authProviders": {
-      "confirmLogout": "Jesi li siguran da želiš odspojiti {title}?",
+      "confirmLogout": "Stvarno želiš odspojiti {title}?",
+      "loggedOut": "Uspješna odjava",
       "title": "Status autorizacije"
     },
     "blog": "Blog",
@@ -785,12 +788,12 @@
       "battery": "Baterija",
       "batteryCharge": "Punjenje baterije",
       "batteryDischarge": "Pražnjenje baterije",
-      "batteryGridChargeActive": "aktivno je punjenje iz mreže",
-      "batteryGridChargeLimit": "punjene iz mreže kad",
+      "batteryGridChargeActive": "punjenje putem mreže je aktivno",
+      "batteryGridChargeLimit": "punjene putem mreže kada",
       "batteryHold": "Baterija (zaključano)",
       "batteryTooltip": "{energy} od {total} ({soc})",
       "forecastTooltip": "predviđanje: današnja preostala solarna proizvodnja",
-      "gridImport": "Iz mreže",
+      "gridImport": "Korištenje mreže",
       "homePower": "Potrošnja",
       "loadpoints": "Punjač| Punjač | {count} punjača",
       "loadpointsLimit": "{limit} ograničenje",
@@ -807,8 +810,8 @@
       "waitForVehicle": "Spremno. Čeka se grijač…"
     },
     "hemsWarning": {
-      "description": "Punjenje je smanjeno da ne prijeđe {limit}.",
-      "title": "Vanjsko ograničenje:"
+      "description": "Punjenje je smanjeno da se ne prekorači {limit}.",
+      "title": "Externo ograničenje:"
     },
     "loadpoint": {
       "avgPrice": "⌀ cijena",
@@ -826,7 +829,7 @@
     },
     "loadpointSettings": {
       "batteryBoost": {
-        "description": "Napuni brže uz pomoć kućne baterije",
+        "description": "Brzo punjenje pomoću kućne baterije.",
         "label": "Ubrzaj punjenje s baterijom",
         "mode": "Dostupno samo u 'Solarno' i 'Min+Solar' načinima rada.",
         "once": "Ubrzano punjenje je aktivno za ovu sesiju punjenja."
@@ -846,7 +849,7 @@
         "label": "Minimalna struja punjenja"
       },
       "minSoc": {
-        "description": "Vozilo se „brzo” puni na {0} u solarnom načinu rada, zatim sa solarnim viškom. Korisno za osiguravanje minimalnog dometa čak i u danima s manje sunca.",
+        "description": "Vozilo se puni „brzo” na {0} u solarnom maodusu. Zatim sa solarnim viškom. Korisno za osiguravanje minimalnog raspona čak i u danima s manje sunca.",
         "label": "Min. % punjenja"
       },
       "onlyForSocBasedCharging": "Navedene opcije dostupne samo za vozila s poznatom razinom napunjenosti baterije.",
@@ -878,10 +881,10 @@
     "startConfiguration": "Započnimo postavljanje",
     "targetCharge": {
       "activate": "Aktiviraj",
-      "co2Limit": "CO₂ granica od {co2}",
-      "costLimitIgnore": "Konfigurirani {limit} zanemarit će se tijekom ovog razdoblja.",
+      "co2Limit": "CO₂ ograničenje od {co2}",
+      "costLimitIgnore": "Konfigurirani {limit} će se zanemariti tijekom ovog razdoblja.",
       "currentPlan": "Aktivni plan",
-      "descriptionEnergy": "Do kada treba napuniti {targetEnergy} u vozilo?",
+      "descriptionEnergy": "Do kada treba napuniti vozilo s {targetEnergy}?",
       "descriptionSoc": "Do kada vozilo treba biti napunjeno do {targetSoc}?",
       "goalReached": "Cilj je već dostignut",
       "inactiveLabel": "Ciljano vrijeme",
@@ -896,8 +899,8 @@
       "priceLimit": "ograničenje cijene od {price}",
       "remove": "Ukloni",
       "setTargetTime": "bez",
-      "targetIsAboveLimit": "Konfigurirano ograničenje napajanja od {limit} bit će zanemareno tijekom ovog razdoblja.",
-      "targetIsAboveVehicleLimit": "Ograničenje vozila je ispod cilja punjenja.",
+      "targetIsAboveLimit": "Konfigurirano ograničenje napajanja od {limit} će se zanemariti tijekom ovog razdoblja.",
+      "targetIsAboveVehicleLimit": "Ograničenje vozila je manje od cilja punjenja.",
       "targetIsInThePast": "Odaberi vrijeme u budućnosti.",
       "targetIsTooFarInTheFuture": "Prilagodit ćemo plan čim budemo znali više o budućnosti.",
       "title": "Ciljano vrijeme",
@@ -916,7 +919,7 @@
     },
     "targetEnergy": {
       "label": "Ograničenje",
-      "noLimit": "nema, dodaj"
+      "noLimit": "bez"
     },
     "vehicle": {
       "addVehicle": "Dodaj vozilo",
@@ -928,7 +931,7 @@
       "notReachable": "Vozilo nije dostupno. Pokušajte ponovno pokrenuti evcc.",
       "targetSoc": "Ograničenje",
       "temp": "Temp.",
-      "tempLimit": "Temeraturni limit",
+      "tempLimit": "Ograničenje temerature",
       "unknown": "Gost vozilo",
       "vehicleSoc": "Napunjenost"
     },
@@ -938,14 +941,14 @@
       "charging": "Punjenje…",
       "cheapEnergyCharging": "Jeftina energija je dostupna.",
       "cheapEnergyNextStart": "Jeftina energija za {duration}.",
-      "cheapEnergySet": "Postavljena granica cijene.",
+      "cheapEnergySet": "Ograničenje cijene je postavljeno.",
       "cleanEnergyCharging": "Čista energija je dostupna.",
       "cleanEnergyNextStart": "Čista energija za {duration}.",
-      "cleanEnergySet": "Granica za CO₂ postavljena.",
+      "cleanEnergySet": "Ograničenje za CO₂ je postavljeno.",
       "climating": "Otkriveno predkondicioniranje.",
       "connected": "Povezano.",
-      "disconnectRequired": "Zadatak prekinut. Molim ponovno spojite.",
-      "disconnected": "Vozilo nije priključeno",
+      "disconnectRequired": "Postupak je prekinut. Ponovo poveži.",
+      "disconnected": "Nepovezano.",
       "feedinPriorityNextStart": "Visoka tarifa prodaje počinje za {duration}.",
       "feedinPriorityPausing": "Solarno punjenje je pauzirano radi maksimiziranja predaje u mrežu.",
       "finished": "Završeno.",
@@ -957,8 +960,8 @@
       "targetChargeActive": "Aktivan je plan punjenja. Procijenjeni završetak za {duration}.",
       "targetChargePlanned": "Planirano punjenje počinje za {duration}.",
       "targetChargeWaitForVehicle": "Planirano punjenje je spremno. Čeka se vozilo…",
-      "vehicleLimit": "Granica na vozilu",
-      "vehicleLimitReached": "Dosegnuto ograničenje na vozilu.",
+      "vehicleLimit": "Ograničenje za vozilo",
+      "vehicleLimitReached": "Dosegnuto je ograničenje za vozilo.",
       "waitForVehicle": "Spremno. Čeka se vozilo …",
       "welcome": "Kratko početno punjenje kako bi se potvrdila povezanost."
     },
@@ -1014,7 +1017,7 @@
       "byGroupLoadpoint": "po mjestu punjenja",
       "byGroupVehicle": "po vozilu",
       "energy": "Napunjena energija",
-      "energyGrouped": "Solarna / energija iz mreže",
+      "energyGrouped": "Solarna energija nasuprot mrežne energije",
       "energyGroupedByGroup": "Energija {byGroup}",
       "energySubSolar": "{value} solarno",
       "energySubTotal": "{value} ukupno",
@@ -1088,13 +1091,13 @@
   "settings": {
     "deviceInfo": "Postavke koje ovdje promijenite primjenjuju se samo na ovaj uređaj.",
     "fullscreen": {
-      "enter": "Puni zaslon",
+      "enter": "Otvori cjeloekranski prikaz",
       "exit": "Izlaz iz punog zaslona",
       "label": "Postavke prikaza"
     },
     "hiddenFeatures": {
       "label": "Eksperimentalno",
-      "value": "Prikaži eksperimentalne značajke korisničkog sučelja"
+      "value": "Prikaži eksperimentalne funkcije korisničkog sučelja."
     },
     "language": {
       "auto": "Automatski",
@@ -1131,25 +1134,26 @@
   },
   "smartCost": {
     "activeHours": "{active} od {total}",
-    "activeHoursLabel": "Aktivni sati",
+    "activeHoursLabel": "Aktivno vrijeme",
     "applyToAll": "Primijeniti svuda?",
     "batteryDescription": "Puni kućnu bateriju energijom iz mreže.",
     "cheapTitle": "Jeftino punjenje iz mreže",
     "cleanTitle": "Čisto punjenje iz mreže",
     "co2Label": "Co₂ emisija",
-    "co2Limit": "Ograničenje CO₂",
+    "co2Limit": "CO₂ ograničenje",
+    "enable": "Omogući ograničenje",
     "loadpointDescription": "Omogućuje privremeno brzo punjenje u solarnom načinu rada.",
     "modalTitle": "Smart Grid punjenje",
     "none": "bez",
     "priceLabel": "Cijena energije",
     "priceLimit": "Ograničenje cijene",
     "resetAction": "Ukloni ograničenje",
-    "resetWarning": "Ne postoji dinamična cijena energije ili izvor informacija o CO₂ nije postavljen. No, čini se kako još uvijek postoji ograničenje od {limit}. Ispraviti postavke?",
+    "resetWarning": "Nijedna dinamična cijena merže ili CO₂ izvor nisu postavljeni. No, čini se kako još uvijek postoji ograničenje od {limit}. Ispraviti postavke?",
     "saved": "Spremljeno."
   },
   "smartFeedInPriority": {
-    "activeHoursLabel": "Razdoblje pauze",
-    "description": "Za vrijeme visokih cijena pauzira punjenje i daje prednost isplativom predavanju u mrežu.",
+    "activeHoursLabel": "Vrijeme pauziranja",
+    "description": "Za vrijeme visokih cijena pauzira punjenje i daje prednost isplativoj predaji u mrežu.",
     "priceLabel": "Prodajna cijena",
     "priceLimit": "Ograničenje prodaje",
     "resetWarning": "Nije postavljena dinamička prodajna tarifa. Međutim još uvijek postoji ograničenje od {limit}. Očistiti konfiguraciju?",
